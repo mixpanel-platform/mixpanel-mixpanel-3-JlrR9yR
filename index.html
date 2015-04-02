@@ -8,7 +8,12 @@
   </head>
   <body class="mixpanel-platform-body">
     <h1>Hello, World!</h1>
+    <div class="chart"></div>
     <script>
+      MP.api.segment("Viewed report").done(function(resp) {
+        console.log(resp);
+        $('.chart').MPChart({data: resp, chartType: 'line'});
+      })
       // Run queries and display results here
     </script>
   </body>
